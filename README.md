@@ -1,46 +1,136 @@
-# Aishwarya — Full-Stack Web Developer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        :root {
+            --bg: #f4f4f9;
+            --text: #333;
+            --accent: #0070f3;
+            --card-bg: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --text: #e0e0e0;
+                --accent: #00bcd4;
+                --card-bg: #1e1e1e;
+            }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            margin-bottom: 40px;
+        }
+        h1 { margin-bottom: 10px; }
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .links a:hover { text-decoration: underline; }
+        section { margin-bottom: 40px; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 600px) {
+            .project-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .project-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .project-card h3 { margin-top: 0; }
+        .tag {
+            background: var(--bg);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
 
-Building end-to-end web applications with clean REST/GraphQL APIs, relational databases, and responsive React/Next.js interfaces.
+    <div class="container">
+        <!-- Header / About Me -->
+        <header>
+            <h1>Your Name</h1>
+            <p><strong>Software Engineer / Designer / Student</strong></p>
+            <p>Hi, I build clean digital experiences. Passionate about solving complex problems and learning new tech stacks.</p>
+            <div class="links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+        </header>
 
-[GitHub](https://github.com) • [LinkedIn](https://linkedin.com) • [Resume](./resume.pdf) • your.email@domain.com
+        <!-- Skills Section -->
+        <section>
+            <h2>Skills</h2>
+            <div>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">Git</span>
+                <span class="tag">React</span>
+            </div>
+        </section>
 
----
+        <!-- Projects Section -->
+        <section>
+            <h2>Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Project One</h3>
+                    <p>A short description of what your project does and the problem it solves.</p>
+                    <p>
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                    </p>
+                    <a class="links" href="#" target="_blank">View Project →</a>
+                </div>
 
-## 🛠️ Full-Stack Tech Stack
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Project Two</h3>
+                    <p>A short description of what your project does and the problem it solves.</p>
+                    <p>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">API</span>
+                    </p>
+                    <a class="links" href="#" target="_blank">View Project →</a>
+                </div>
 
-* **Frontend:** React, Next.js (App Router), TypeScript, Tailwind CSS, HTML5/CSS3
-* **Backend:** Node.js, Express, Python (FastAPI), REST APIs, WebSockets
-* **Database & Cache:** PostgreSQL, Prisma ORM, MongoDB, Redis
-* **DevOps & Tooling:** Git, Docker, Vercel, AWS (EC2/S3), Postman, Jest
+            </div>
+        </section>
 
----
+        <!-- Footer -->
+        <footer>
+            <p style="font-size: 0.85rem; opacity: 0.7;">&copy; 2026 Your Name. Built with simple HTML & CSS.</p>
+        </footer>
+    </div>
 
-## 🚀 Featured Web Applications
-
-### 1. PayFlow — Collaborative Kanban & Event Sync
-* **The Problem:** Remote teams struggled with state sync delays and clunky drag-and-drop interfaces across multiple boards.
-* **The Architecture:** 
-  * *Frontend:* Next.js client with optimistic UI updates and Tailwind CSS.
-  * *Backend:* Node.js + Express server with Socket.io for sub-50ms event broadcasting.
-  * *Database:* PostgreSQL normalized schema with Prisma transactions.
-* **Key Metric:** Reduced UI latency to <30ms; supported 500+ concurrent WebSocket connections stress-tested via k6.
-* [Live Demo](https://payflow-demo.com) | [Source Code](https://github.com/payflow)
-
-### 2. SaaSBox — Multi-Tenant Billing Portal
-* **The Problem:** Managing subscription tiers, usage metering, and invoice generation required patching three external tools.
-* **The Architecture:**
-  * *Frontend:* React + Vite dashboard with role-based access control (RBAC).
-  * *Backend:* Python FastAPI handling webhook verification and usage aggregation cron jobs.
-  * *Database:* MongoDB for flexible event logs + PostgreSQL for core user/billing state.
-* **Key Metric:** Automated 100% of monthly billing cycles, cutting support tickets for invoice adjustments by 60%.
-* [Live Demo](https://saasbox-demo.com) | [Source Code](https://github.com/saasbox)
-
----
-
-## 💻 Full-Stack Architecture / System Design Snippet
-*Want to see how I structure code? Check out:*
-* [`/server`](./server) — Clean separation of controllers, services, and database repositories.
-* [`/client/src/components`](./client/src/components) — Reusable, accessible UI primitives.
-* [`/prisma/schema.prisma`](./prisma/schema.prisma) — Relational schema design with proper indexing.
-# portfolio
-Personal engineering portfolio, live demos, and technical case studies.
+</body>
+</html>
